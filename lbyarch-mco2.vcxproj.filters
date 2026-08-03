@@ -40,5 +40,8 @@
     <ClInclude Include="src\process.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\process_x64.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

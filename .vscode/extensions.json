@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+
+    /* C */
+    "ms-vscode.cpptools",
+
+    /* YAML */
+    "redhat.vscode-yaml"
+  ]
+}

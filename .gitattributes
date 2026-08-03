@@ -1,0 +1,15 @@
+*                 text=auto
+*.c               text diff=cpp
+*.h               text diff=cpp
+*.json            text
+*.slnx            text eol=crlf
+*.vcxproj         text eol=crlf
+*.vcxproj.filters text eol=crlf
+
+.clang-format  text
+.editorconfig  text
+.gitattributes text export-ignore
+.gitignore     text export-ignore
+
+# Overrides
+.vscode/*.json linguist-language=jsonc

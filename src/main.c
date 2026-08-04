@@ -90,6 +90,8 @@ int main(int argc, char* argv[]) {
   print_results(z, n);
   printf("Average Time (C): %.3f ms\n", avg_ms / BENCHMARK_RUNS);
 
+  printf("\n");
+
   printf("Benchmarking (ASM)...");
   fflush(stdout);
 

@@ -13,6 +13,24 @@ static void fill_vector(float* vec, size_t size) {
 
 static const int BENCHMARK_RUNS = 30;
 
+static const size_t MAX_PRINTED_RESULTS = 10;
+
+static void print_results(const float* z, size_t n) {
+  n = (n < MAX_PRINTED_RESULTS) ? n : MAX_PRINTED_RESULTS;
+
+  printf("z -> ");
+
+  for (size_t i = 0; i < n; i++) {
+    printf("%.8f", z[i]);
+
+    if (i + 1 < n) {
+      printf(", ");
+    }
+  }
+
+  printf("\n");
+}
+
 int main(int argc, char* argv[]) {
   srand((unsigned)time(NULL));
 
@@ -67,7 +85,10 @@ int main(int argc, char* argv[]) {
     avg_ms += elapsed_ms;
   }
 
-  printf("\rAverage Time (C): %.3f ms\n", avg_ms / BENCHMARK_RUNS);
+  printf("\r");
+
+  print_results(z, n);
+  printf("Average Time (C): %.3f ms\n", avg_ms / BENCHMARK_RUNS);
 
   printf("Benchmarking (ASM)...");
   fflush(stdout);
@@ -85,7 +106,10 @@ int main(int argc, char* argv[]) {
     avg_ms += elapsed_ms;
   }
 
-  printf("\rAverage Time (ASM): %.3f ms\n", avg_ms / BENCHMARK_RUNS);
+  printf("\r");
+
+  print_results(z, n);
+  printf("Average Time (ASM): %.3f ms\n", avg_ms / BENCHMARK_RUNS);
 
   free(z);
   free(y2);

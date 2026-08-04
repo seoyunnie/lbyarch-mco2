@@ -2,6 +2,7 @@
 #include <time.h>
 
 #include "process.h"
+#include "process_x64.h"
 #include "stdio.h"
 
 static void fill_vector(float* vec, size_t size) {
@@ -50,7 +51,7 @@ int main(int argc, char* argv[]) {
   fill_vector(y2, n);
   fill_vector(z, n);
 
-  printf("Benchmarking...");
+  printf("Benchmarking (C)...");
   fflush(stdout);
 
   double avg_ms = 0.0;
@@ -66,7 +67,25 @@ int main(int argc, char* argv[]) {
     avg_ms += elapsed_ms;
   }
 
-  printf("\rAverage Time: %.3f ms\n", avg_ms / BENCHMARK_RUNS);
+  printf("\rAverage Time (C): %.3f ms\n", avg_ms / BENCHMARK_RUNS);
+
+  printf("Benchmarking (ASM)...");
+  fflush(stdout);
+
+  avg_ms = 0.0;
+
+  for (int i = 0; i < BENCHMARK_RUNS; i++) {
+    clock_t start = clock();
+
+    distance_x64(n, x1, x2, y1, y2, z);
+
+    clock_t end = clock();
+
+    double elapsed_ms = (double)(end - start) * 1000.0 / CLOCKS_PER_SEC;
+    avg_ms += elapsed_ms;
+  }
+
+  printf("\rAverage Time (ASM): %.3f ms\n", avg_ms / BENCHMARK_RUNS);
 
   free(z);
   free(y2);

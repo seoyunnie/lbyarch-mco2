@@ -4,6 +4,7 @@
 *.h               text diff=cpp
 *.json            text
 *.md              text diff=markdown
+*.mp4             binary
 *.png             binary
 *.slnx            text eol=crlf
 *.vcxproj         text eol=crlf

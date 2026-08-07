@@ -31,3 +31,8 @@ Correct answers per [Omni Calculator](https://www.omnicalculator.com/math/euclid
 |    4.0    |    2.5    |    3.0    |    2.5    | 1.58114  |
 |    3.5    |    2.5    |    3.5    |    1.0    | 2.69258  |
 |    2.0    |    1.0    |    3.0    |    1.5    | 1.802776 |
+
+## Group Members
+
+- Tiongco, Kyan Thomas
+- Panaligan ,Louis Raphael
